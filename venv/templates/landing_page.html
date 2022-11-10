@@ -10,7 +10,7 @@
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="https://www.flaticon.com/free-icon/brain_3288930?related_id=3288930"/>
+        <img src="{{ url_for('static', filename='images/brain.png') }}" alt="Logo" width="30" height="24"/>
         parkinson.ai</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-      <img class="rounded-lg-3" src="images/neurons.jpg" alt="" width="720">
+      <img class="rounded-lg-3" src="{{ url_for('static', filename='images/neurons2.jpeg') }}" alt="" width="720">
     </div>
   </div>
 </div>
