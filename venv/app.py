@@ -1,59 +1,76 @@
 from flask import Flask, jsonify, request, render_template 
 import json
 
-symptoms = {
-    'MDVP:Fo(Hz)':None,
-    'MDVP:Flo(Hz)':None,
-    'MDVP:Jitter(%)':None,
-    'MDVP:Jitter(Abs)':None,
-    'MDVP:RAP':None,
-    'MDVP:PPQ':None,
-    'Jitter:DDP':None,
-    'MDVP:Shimmer':None,
-    'MDVP:Shimmer(dB)':None,
-    'Shimmer:APQ3':None,
-    'Shimmer:APQ5':None,
-    'MDVP:APQ':None,
-    'Shimmer:DDA':None,
-    'HNR':None,
-    'RPDE':None,
-    'DFA':None,
-    'spread1':None,
-    'spread2':None,
-    'D2':None,
-    'PPE':None
-}
-
-symptoms_list = list(symptoms.keys())
 
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/landing_page')
 def index():
-    return render_template("home.html")
+    return render_template("landing_page.html")
 
 
-@app.route('/symptoms')
+@app.route('/information_page')
 def get_symptoms():
-    return render_template("symptoms.html")
+    return render_template("information_page.html")
+
+@app.route('/filling_page')
+def filling_page():
+    return render_template("filling_page.html")
 
 
-@app.route('/fillingform', methods=['POST'])
+@app.route('/filling_page', methods=['POST', 'GET'])
 def get_values():
- 
-    if request.method == 'POST':
-        updated_data = []
-        for i in range(20):
-            if request.form['symptom'+str(i)] =="":
-                updated_data.append(0)
-            else:
-             updated_data.append(float(request.form['symptom'+str(i)]))
-        with open('user_symptoms.json', 'w') as f:
-            json.dump(updated_data, f)
-        return result()
-    else:
-        return render_template("fillingform.html")
+    symptom0 = request.form['symptom0']
+    symptom1 = request.form['symptom1']
+    symptom2 = request.form['symptom2']
+    symptom3 = request.form['symptom3']
+    symptom4 = request.form['symptom4']
+    symptom5 = request.form['symptom5']
+    symptom6 = request.form['symptom6']
+    symptom7 = request.form['symptom7']
+    symptom8 = request.form['symptom8']
+    symptom9 = request.form['symptom9']
+    symptom10 = request.form['symptom10']
+    symptom11 = request.form['symptom11']
+    symptom12 = request.form['symptom12']
+    symptom13 = request.form['symptom13']
+    symptom14 = request.form['symptom14']
+    symptom15 = request.form['symptom15']
+    symptom16 = request.form['symptom16']
+    symptom17 = request.form['symptom17']
+    symptom18 = request.form['symptom18']
+    symptom19 = request.form['symptom19']
 
+    updated_data = [symptom0, symptom1, symptom2, symptom3, symptom4, 
+                    symptom5, symptom6, symptom7, symptom8, symptom9,
+                    symptom10, symptom11, symptom12, symptom13, symptom14, 
+                    symptom15, symptom16, symptom17, symptom18, symptom19]
+
+    with open('user_data.json', 'w') as f:
+            json.dump(updated_data, f)
+
+    import numpy as np
+
+    with open('user_data.json', 'r') as f:
+        data = json.load(f)
+    
+    data = np.array(data)
+    data = data.reshape(1, -1)
+    
+    model_list = load_saved_model_from_db('first_model', 'mongodb://localhost:27017/',
+     'Parkinson_Prediction', 'knn_model')
+
+    model = model_list[0]
+    scaler = model_list[2]
+
+    data = scaler.transform(data)
+    result = model.predict(data)
+    if result == 1:
+        result = 'Positive'
+    else:
+        result = 'Negative'
+    return render_template("results_page.html", result=result)
 
 def load_saved_model_from_db(model_name, client, db, dbconnection):
     import pickle
@@ -83,29 +100,30 @@ def load_saved_model_from_db(model_name, client, db, dbconnection):
     model_list = [model, score, scaler]
     return model_list
 
-@app.route('/results')
+@app.route('/results_page')
 def result():
-    import numpy as np
+    return render_template("results_page.html")
+    # import numpy as np
 
-    with open('user_symptoms.json', 'r') as f:
-        data = json.load(f)
+    # with open('user_data.json', 'r') as f:
+    #     data = json.load(f)
     
-    data = np.array(data)
-    data = data.reshape(1, -1)
+    # data = np.array(data)
+    # data = data.reshape(1, -1)
     
-    model_list = load_saved_model_from_db('first_model', 'mongodb://localhost:27017/',
-     'Parkinson_Prediction', 'knn_model')
+    # model_list = load_saved_model_from_db('first_model', 'mongodb://localhost:27017/',
+    #  'Parkinson_Prediction', 'knn_model')
 
-    model = model_list[0]
-    scaler = model_list[2]
+    # model = model_list[0]
+    # scaler = model_list[2]
 
-    data = scaler.transform(data)
-    result = model.predict(data)
-    if result == 1:
-        result = 'Positive'
-    else:
-        result = 'Negative'
-    return render_template("results.html", result=result)
+    # data = scaler.transform(data)
+    # result = model.predict(data)
+    # if result == 1:
+    #     result = 'Positive'
+    # else:
+    #     result = 'Negative'
+    # return render_template("results_page.html", result=result)
 
 if __name__ == '__main__':
     app.run(debug=True ,host = '0.0.0.0',port = 5000)

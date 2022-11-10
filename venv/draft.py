@@ -29,7 +29,7 @@ def load_saved_model_from_db(model_name, client, db, dbconnection):
     model_list = [model, score, scaler]
     return model_list
 
-with open('user_symptoms.json', 'r') as f:
+with open('user_data.json', 'r') as f:
     data = json.load(f)
 
 data = np.array(data)
