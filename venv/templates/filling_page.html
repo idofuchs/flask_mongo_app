@@ -31,83 +31,109 @@
       </div>
     </div>
   </nav>
-        <form action="filling_page" method="post">
-          <div class="row">
+  <div class="position-absolute top-50 start-50 translate-middle">
+          <form action="filling_page" method="post">
+            <div class="row">
+              <div class="col">
+                <label for="symptom0" >1. MDVP:Fo(Hz):</label>
+                <input type="number" step=any name="symptom0" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom1" >2. MDVP:Flo(Hz):</label>
+                <input type="number" step=any name="symptom1"  class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom2">3. MDVP:Jitter(%):</label>
+                <input type="number" step=any name="symptom2"  class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
             <div class="col">
-              <label for="symptom0" class="form-label" >1. MDVP:Fo(Hz):</label>
-              <input type="number" step=any name="symptom0" class="form-control" placeholder="..." style="width:25vh">
+                <label for="symptom3">4. MDVP:Jitter(Abs):</label>
+                <input type="number" step=any name="symptom3" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
             </div>
-            <div class="col">
-              <label for="symptom1" class="form-label">2. MDVP:Flo(Hz):</label>
-              <input type="number" step=any name="symptom1"  class="form-control" placeholder="..." style="width:25vh"><br><br>
-            </div>
-          </div>
-    
 
-          <div class="row">
-            <div class="col">
-              <label for="symptom2">3. MDVP:Jitter(%):</label>
-              <input type="number" step=any name="symptom2"  class="form-control" placeholder="..." style="width:25vh"><br><br>
-            </div>
-          <div class="col">
-              <label for="symptom3">4. MDVP:Jitter(Abs):</label>
-              <input type="number" step=any name="symptom3" class="form-control" placeholder="..." style="width:25vh"><br><br>
-            </div>
-          </div>
-          
-            <label for="symptom4">5. MDVP:RAP:</label>
-            <input type="number" step=any name="symptom4" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom5">6. MDVP:PPQ:</label>
-            <input type="number" step=any name="symptom5" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom6">7. Jitter:DDP:</label>
-            <input type="number" step=any name="symptom6" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom7">8. MDVP:Shimmer:</label>
-            <input type="number" step=any name="symptom7" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom8">9. MDVP:Shimmer(dB):</label>
-            <input type="number" step=any name="symptom8" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom9">10. Shimmer:APQ3:</label>
-            <input type="number" step=any name="symptom9" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom10">11. Shimmer:APQ5:</label>
-            <input type="number" step=any name="symptom10" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom11">12. MDVP:APQ:</label>
-            <input type="number" step=any name="symptom11" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom12">13. Shimmer:DDA:</label>
-            <input type="number" step=any name="symptom12" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom13">14. HNR: </label>
-            <input type="number" step=any name="symptom13" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom14">15. RPDE:</label>
-            <input type="number" step=any name="symptom14" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom15">16. DFA:</label>
-            <input type="number" step=any name="symptom15" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom16">17. spread1:</label>
-            <input type="number" step=any name="symptom16" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom17">18. spread2:</label>
-            <input type="number" step=any name="symptom17" class="form-control" placeholder="..." style="width:25vh"><br><br>
-    
-            <label for="symptom18" class="form-label">19. D2</label>
-            <input type="number" step=any name="symptom18" class="form-control" placeholder="..." style="width:25vh"><br><br>
 
-            <label for="symptom19" class="form-label">20. PPE</label>
-            <input type="number"  step=any name="symptom19" class="form-control" placeholder="..." style="width:25vh"><br><br>
-     
+            <div class="row">
+              <div class="col">
+                <label for="symptom4">5. MDVP:RAP:</label>
+                <input type="number" step=any name="symptom4" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom5">6. MDVP:PPQ:</label>
+                <input type="number" step=any name="symptom5" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom6">7. Jitter:DDP:</label>
+                <input type="number" step=any name="symptom6" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom7">8. MDVP:Shimmer:</label>
+                <input type="number" step=any name="symptom7" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="symptom8">9. MDVP:Shimmer(dB):</label>
+                <input type="number" step=any name="symptom8" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom9">10. Shimmer:APQ3:</label>
+                <input type="number" step=any name="symptom9" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom10">11. Shimmer:APQ5:</label>
+                <input type="number" step=any name="symptom10" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom11">12. MDVP:APQ:</label>
+                <input type="number" step=any name="symptom11" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="symptom12">13. Shimmer:DDA:</label>
+                <input type="number" step=any name="symptom12" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom13">14. HNR: </label>
+                <input type="number" step=any name="symptom13" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom14">15. RPDE:</label>
+                <input type="number" step=any name="symptom14" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom15">16. DFA:</label>
+                <input type="number" step=any name="symptom15" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="symptom16">17. spread1:</label>
+                <input type="number" step=any name="symptom16" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom17">18. spread2:</label>
+                <input type="number" step=any name="symptom17" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom18">19. D2</label>
+                <input type="number" step=any name="symptom18" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+              <div class="col">
+                <label for="symptom19" >20. PPE</label>
+                <input type="number"  step=any name="symptom19" class="form-control" placeholder="..." style="width:25vh"><br><br>
+              </div>
+            </div>
+
             <a href="results_page">
-              <input type="submit" value="Submit"/>
+              <input type="submit" value="Predict" class="position-absolute top-30 start-50 translate-middle mt-1"/>
             </a>
         </form>
-
+      </div>
 
     <!-- <h3 style="color:rgb(18, 59, 75);">Good Luck!</h3> -->
     <!-- <a href="landing_page">Back To Home Page</a> -->
