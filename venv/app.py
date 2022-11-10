@@ -102,27 +102,7 @@ def load_saved_model_from_db(model_name, client, db, dbconnection):
 @app.route('/results_page')
 def result():
     return render_template("results_page.html")
-    # import numpy as np
 
-    # with open('user_data.json', 'r') as f:
-    #     data = json.load(f)
-    
-    # data = np.array(data)
-    # data = data.reshape(1, -1)
-    
-    # model_list = load_saved_model_from_db('first_model', 'mongodb://localhost:27017/',
-    #  'Parkinson_Prediction', 'knn_model')
-
-    # model = model_list[0]
-    # scaler = model_list[2]
-
-    # data = scaler.transform(data)
-    # result = model.predict(data)
-    # if result == 1:
-    #     result = 'Positive'
-    # else:
-    #     result = 'Negative'
-    # return render_template("results_page.html", result=result)
 
 if __name__ == '__main__':
     app.run(debug=True ,host = '0.0.0.0',port = 5000)
