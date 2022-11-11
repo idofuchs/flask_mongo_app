@@ -69,7 +69,7 @@ def get_values():
         result = 'Positive'
     else:
         result = 'Negative'
-    return render_template("results_page.html", result=result)
+    return render_template("filling_page.html", result=result)
 
 def load_saved_model_from_db(model_name, client, db, dbconnection):
     import pickle
